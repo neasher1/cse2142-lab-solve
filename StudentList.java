@@ -6,7 +6,7 @@ public class StudentList {
 	public static void main(String[] args) {
 
 		if (args == null || args.length == 0) {
-			System.out.println("Please provide a command: a, r, ?, +, or c");
+			ShowUsage();
 			return;
 		}
 
@@ -126,6 +126,10 @@ public class StudentList {
 			throw new RuntimeException(e);
 		}
 		return reader;
+	}
+
+	static void ShowUsage() {
+		System.out.println("Please provide a, r, ?, + or c as argument");
 	}
 
 }
