@@ -102,8 +102,27 @@ public class StudentList {
 
 			System.out.println("Loading data ...");
 
-			char[] words = fileContents.toCharArray();
-			System.out.println(String.format("%d words found", words.length));
+			try {
+				char characters[] = fileContents.toCharArray();
+				boolean in_word = false;
+				int count = 0;
+
+				for (char character : characters) {
+					if (character == ' ') {
+						if (!in_word) {
+							count++;
+							in_word = true;
+						} else {
+							in_word = false;
+						}
+					}
+				}
+
+				System.out.println(count + " word(s) found " + characters.length);
+
+			} catch (Exception e) {
+
+			}
 
 			System.out.println("Data Loaded.");
 
